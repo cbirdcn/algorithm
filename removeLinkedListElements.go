@@ -5,15 +5,10 @@ import "fmt"
 /**
 203 移除链表元素
 https://mp.weixin.qq.com/s/slM1CH5Ew9XzK93YOQYSjA
-
 题意：删除链表中等于给定值 val 的所有节点。
-
 Input: head = [1,2,6,3,4,5,6], val = 6
 Output: [1,2,3,4,5]
-
-
  */
-
 
 type listNode struct {
 	Val int
@@ -65,14 +60,14 @@ func main(){
 
 	fmt.Println("--删除val后的链表--")
 
-	listNodeChanged := removeElements(&listNode0, 6)
+	listNodeChanged := removeLinkedListElements(&listNode0, 6)
 
 	for i := listNodeChanged; i != nil; i = i.Next{
 		fmt.Println(i.Val)
 	}
 }
 
-func removeElements(listHead *listNode, target int) *listNode{
+func removeLinkedListElements(listHead *listNode, target int) *listNode{
 	// 创建虚拟节点作为head，head后连接到原来的链表上。可以避免删除头节点时，需要让头结点指向下一个节点的单独处理过程
 	dummyHead := NewListNode()
 	dummyHead.Next = listHead // 但是不能用dummyHead作为起点向后遍历，因为需要返回dummyHead->next作为头结点

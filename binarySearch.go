@@ -60,9 +60,15 @@ func binarySearch(arr []int, target int) int{
 		} else if arr[m] > target {
 			r = m - 1
 		} else {
+			// 正好找到相等的元素时，返回当前位置
 			return m
 		}
 	}
 
+	// 假设target=2，在数组中没找到相等的元素时，l和r的终值如下：
+	// target比所有元素都小如[3]。l=0,r=0,m=0;下一轮循环target<m值，r=-1退出循环;返回0
+	// target在两数中间[1,3]。l=0,r=1,m=0;下一轮target>m值,l=1;下一轮l=1,r=1,m=1,target<m值,r=0退出循环;返回1
+	// target比所有元素都大[1]。l=0,r=0,m=0;下一轮target>m值,l=1退出循环;返回1
+	// 总结：要插入到数组头的前方、两个数之间、最后一个数的下一位，也就是当不满足于l<=r退出循环时也就是r<l，此时m在
 	return r + 1
 }
