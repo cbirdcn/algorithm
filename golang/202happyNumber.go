@@ -33,18 +33,6 @@ https://mp.weixin.qq.com/s/G4Q2Zfpfe706gLK7HpZHpA
 
 */
 
-func getSum(n int) int{
-	s := 0
-
-	// 获取单数，就是循环对10取余获得尾数，再整除10获取去掉尾数的前数，直到整除后=0
-	for n > 0 {
-		s += int(math.Pow(float64(n % 10), 2)) // 传入int，但是math操作需要float64，power计算完还要转回int用于下一轮循环
-		n /= 10
-	}
-
-	return s
-}
-
 func main() {
 	n := 19
 	set := make(map[int]struct{})
@@ -65,4 +53,16 @@ func main() {
 	}
 
 	fmt.Println(true)
+}
+
+func getSum(n int) int{
+	s := 0
+
+	// 获取单数，就是循环对10取余获得尾数，再整除10获取去掉尾数的前数，直到整除后=0
+	for n > 0 {
+		s += int(math.Pow(float64(n % 10), 2)) // 传入int，但是math操作需要float64，power计算完还要转回int用于下一轮循环
+		n /= 10
+	}
+
+	return s
 }

@@ -1,24 +1,46 @@
+/*
+209. 长度最小的子数组
+
+给定一个含有 n 个正整数的数组和一个正整数 target 。
+
+找出该数组中满足其和 ≥ target 的长度最小的 连续子数组 [numsl, numsl+1, ..., numsr-1, numsr] ，并返回其长度。如果不存在符合条件的子数组，返回 0 。
+
+ 
+
+示例 1：
+
+输入：target = 7, nums = [2,3,1,2,4,3]
+输出：2
+解释：子数组 [4,3] 是该条件下的长度最小的子数组。
+示例 2：
+
+输入：target = 4, nums = [1,4,4]
+输出：1
+示例 3：
+
+输入：target = 11, nums = [1,1,1,1,1,1,1,1]
+输出：0
+ 
+
+提示：
+
+1 <= target <= 109
+1 <= nums.length <= 105
+1 <= nums[i] <= 105
+ 
+
+进阶：
+
+如果你已经实现 O(n) 时间复杂度的解法, 请尝试设计一个 O(n log(n)) 时间复杂度的解法。
+
+来源：力扣（LeetCode）
+链接：https://leetcode.cn/problems/minimum-size-subarray-sum
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+*/
 package main
 
-import (
-	"fmt"
-	"math"
-)
-
-/**
-滑动窗口（双指针法）获取长度最小的子数组
-https://mp.weixin.qq.com/s/UrZynlqi4QpyLlLhBPglyg
-
-leetcode209
-
-给定一个含有 n 个正整数的数组和一个正整数 s ，找出该数组中满足其和 ≥ s 的长度最小的 连续 子数组，并返回其长度。如果不存在符合条件的子数组，返回 0。
-
-示例：
-输入：s = 7, nums = [2,3,1,2,4,3]
-输出：2
-解释：子数组 [4,3] 是该条件下的长度最小的子数组。
-
-*/
+import "math"
+import "fmt"
 
 func main(){
 	s := 7
@@ -59,3 +81,31 @@ func minSubArrayLen(target int, nums []int) (int, int, int){
 	}
 
 }
+
+
+// func main(){
+// 	s := []int{2,3,1,2,4,3}
+// 	n := len(s)
+// 	target := 7
+// 	count := math.MaxInt32
+// 	res := make([]int, 1)
+
+// 	for l:=0; l<=n-1; l++{
+// 		tmpCount := 0
+// 		tmpSum := 0
+// 		r := l
+// 		for ; r<=n-1 && tmpSum<target; r++{
+// 			tmpSum = tmpSum + s[r]
+// 			tmpCount = tmpCount + 1
+// 		}
+// 		if tmpCount < count && tmpSum >= target{
+// 			count = tmpCount
+// 			res = res[:0]
+// 			for i:=l;i<=r-1;i++{
+// 				res = append(res, s[i])
+// 			}
+// 		}
+// 	}
+// 	fmt.Println(count)
+// 	fmt.Println(res)
+// }

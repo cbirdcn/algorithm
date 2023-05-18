@@ -15,7 +15,7 @@ type listNode struct {
 	Next *listNode
 }
 
-func NewListNode() listNode{
+func NewlistNode() listNode{
 	return listNode{
 		Val:  0,
 		Next: nil,
@@ -25,30 +25,30 @@ func NewListNode() listNode{
 func main(){
 	//简单赋值
 
-	listNode0 := NewListNode()
+	listNode0 := NewlistNode()
 	listNode0.Val = 1
 
-	listNode1 := NewListNode()
-	listNode1.Val = 2
-	listNode0.Next = &listNode1
+	listNode := NewlistNode()
+	listNode.Val = 2
+	listNode0.Next = &listNode
 
-	listNode2 := NewListNode()
+	listNode2 := NewlistNode()
 	listNode2.Val = 6
-	listNode1.Next = &listNode2
+	listNode.Next = &listNode2
 
-	listNode3 := NewListNode()
+	listNode3 := NewlistNode()
 	listNode3.Val = 3
 	listNode2.Next = &listNode3
 
-	listNode4 := NewListNode()
+	listNode4 := NewlistNode()
 	listNode4.Val = 4
 	listNode3.Next = &listNode4
 
-	listNode5 := NewListNode()
+	listNode5 := NewlistNode()
 	listNode5.Val = 5
 	listNode4.Next = &listNode5
 
-	listNode6 := NewListNode()
+	listNode6 := NewlistNode()
 	listNode6.Val = 6 // listNode6的Next已经默认为null
 	listNode5.Next = &listNode6
 
@@ -69,7 +69,7 @@ func main(){
 
 func removeLinkedListElements(listHead *listNode, target int) *listNode{
 	// 创建虚拟节点作为head，head后连接到原来的链表上。可以避免删除头节点时，需要让头结点指向下一个节点的单独处理过程
-	dummyHead := NewListNode()
+	dummyHead := NewlistNode()
 	dummyHead.Next = listHead // 但是不能用dummyHead作为起点向后遍历，因为需要返回dummyHead->next作为头结点
 
 	cur := dummyHead.Next

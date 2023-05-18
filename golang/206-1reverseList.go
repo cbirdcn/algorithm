@@ -16,13 +16,13 @@ https://mp.weixin.qq.com/s/pnvVP-0ZM7epB8y3w_Njwg
 
 */
 
-type listNode struct {
+type listNode2 struct {
 	Val int
-	Next *listNode
+	Next *listNode2
 }
 
-func NewListNode() listNode{
-	return listNode{
+func NewListNode2() listNode2{
+	return listNode2{
 		Val:  0,
 		Next: nil,
 	}
@@ -31,22 +31,22 @@ func NewListNode() listNode{
 func main(){
 	//简单赋值
 
-	listNode0 := NewListNode()
+	listNode0 := NewListNode2()
 	listNode0.Val = 1
 
-	listNode1 := NewListNode()
+	listNode1 := NewListNode2()
 	listNode1.Val = 2
 	listNode0.Next = &listNode1
 
-	listNode2 := NewListNode()
+	listNode2 := NewListNode2()
 	listNode2.Val = 3
 	listNode1.Next = &listNode2
 
-	listNode3 := NewListNode()
+	listNode3 := NewListNode2()
 	listNode3.Val = 4
 	listNode2.Next = &listNode3
 
-	listNode4 := NewListNode()
+	listNode4 := NewListNode2()
 	listNode4.Val = 5
 	listNode3.Next = &listNode4
 
@@ -63,9 +63,9 @@ func main(){
 	}
 }
 
-func reverseList(head *listNode) *listNode{
+func reverseList(head *listNode2) *listNode2{
 	cur := head
-	var pre *listNode // 初始化为nil
+	var pre *listNode2 // 初始化为nil
 
 	// 方案1：判断tmp（临时链表尾指针）
 	tmp := cur.Next // cur.Next指向会变化，在此暂存，同时还用来判断是否为nil
