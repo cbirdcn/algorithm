@@ -83,29 +83,29 @@ func minSubArrayLen(target int, nums []int) (int, int, int){
 }
 
 
-// func main(){
-// 	s := []int{2,3,1,2,4,3}
-// 	n := len(s)
-// 	target := 7
-// 	count := math.MaxInt32
-// 	res := make([]int, 1)
+func main(){
+	s := []int{2,3,1,2,4,3}
+	n := len(s)
+	target := 7
+	count := math.MaxInt32
+	res := make([]int, 1)
 
-// 	for l:=0; l<=n-1; l++{
-// 		tmpCount := 0
-// 		tmpSum := 0
-// 		r := l
-// 		for ; r<=n-1 && tmpSum<target; r++{
-// 			tmpSum = tmpSum + s[r]
-// 			tmpCount = tmpCount + 1
-// 		}
-// 		if tmpCount < count && tmpSum >= target{
-// 			count = tmpCount
-// 			res = res[:0]
-// 			for i:=l;i<=r-1;i++{
-// 				res = append(res, s[i])
-// 			}
-// 		}
-// 	}
-// 	fmt.Println(count)
-// 	fmt.Println(res)
-// }
+	for l:=0; l<=n-1; l++{
+		tmpCount := 0
+		tmpSum := 0
+		r := l
+		for ; r<=n-1 && tmpSum<target; r++{
+			tmpSum = tmpSum + s[r]
+			tmpCount = tmpCount + 1
+		}
+		if tmpCount < count && tmpSum >= target{
+			count = tmpCount
+			res = res[:0]
+			for i:=l;i<=r-1;i++{
+				res = append(res, s[i])
+			}
+		}
+	}
+	fmt.Println(count)
+	fmt.Println(res)
+}
